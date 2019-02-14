@@ -12,7 +12,7 @@ def dispatch(values=None):
 
     #Perform designated function
     if(values['op'] == 'adjust'):
-        result = adjust(values)
+        result = adjust.adjust(values)
         return result    
     elif(values['op'] == 'predict'):
         return values    #This calculation is stubbed out
