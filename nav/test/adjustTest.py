@@ -69,7 +69,7 @@ class adjustTest(unittest.TestCase):
     #                        -- return {'error':'dictionary is missing'}
     # Happy path
 
-    def test100_10(self):
+    def test100_010ShouldReturnUnchangedValuesWithOperationAdjust(self):
     	self.setParm('op','adjust')
     	result = self.microservice()
         resultDictionary = self.string2dict(result)
