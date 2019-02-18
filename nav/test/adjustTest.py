@@ -1,5 +1,8 @@
 import unittest
 import nav.adjust as nav
+import httplib
+from urllib import urlencode
+import json
 
 class adjustTest(unittest.TestCase):
 
