@@ -1,7 +1,7 @@
 import adjust
 def dispatch(values=None):
 
-    #Validate parm
+    #Validate param
     if(values == None):
         return {'error': 'parameter is missing'}
     if(not(isinstance(values,dict))):
