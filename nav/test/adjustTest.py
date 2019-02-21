@@ -89,8 +89,8 @@ class adjustTest(unittest.TestCase):
     
     def test100_020ShouldReturnChangedValuesWithOperationAdjust(self):   
         # Arrange
-        correctDict = {'altitude':'45d11.9', 'observation': '30d1.5', 'height': '19.0', 
-                       'pressure': '1000', 'horizon': 'artificial', 'op': 'adjust', 'temperature': '85'}
+        correctDict = {'observation': '45d15.2', 'altitude': '45d11.9', 'height': '6', 
+                       'pressure': '1010', 'temperature': '71', 'horizon': 'natural', 'op': 'adjust'}
         self.setParm('observation', '45d15.2')
         self.setParm('height', '6')
         self.setParm('pressure', '1010')
