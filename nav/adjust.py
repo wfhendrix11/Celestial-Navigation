@@ -1,12 +1,5 @@
 import math
 
-# Defaults
-height = 0
-pressure = 1010
-temperature = 72
-horizon = "natural"
-dip = 0
-
 # Adjust       
 def adjust(values = None):
     
@@ -14,18 +7,28 @@ def adjust(values = None):
     
     if "height" in values:
         height = float(values['height'])
+    else:
+        height = 0
          
     if "pressure" in values:
         pressure = int(values['pressure'])
+    else:
+        pressure = 1010
          
     if "temperature" in values:
         temperature = int(values['temperature'])
+    else: 
+        temperature = 72
              
     if "horizon" in values:
         horizon = values['horizon']
+    else:
+        horizon = "natural"
     
     if horizon.lower() == "natural":
         dip = (-0.97 * math.sqrt(height)) / 60
+    else:
+        dip = 0
         
     observation = values['observation']
     x, y = observation.split("d")

@@ -69,11 +69,23 @@ class adjustTest(unittest.TestCase):
     #                        -- return {'error':'dictionary is missing'}
     # Happy path
 
-    def test100_010ShouldReturnUnchangedValuesWithOperationAdjust(self):
+    def test100_010ShouldReturnChangedValuesWithOperationAdjust(self):   
+        # Arrange
+        correctDict = {'altitude':'29d59.9', 'observation': '30d1.5', 'height': '19.0',
+                       'pressure': '1000', 'horizon': 'artificial', 'op': 'adjust', 'temperature': '85'}
+        self.setParm('observation', '30d1.5')
+        self.setParm('height', '19.0')
+        self.setParm('pressure', '1000')
+        self.setParm('horizon', 'artificial')
         self.setParm('op','adjust')
+        self.setParm('temperature', '85')
+        
+        # Act
         result = self.microservice()
         resultDictionary = self.string2dict(result)
-        self.assertDictEqual(self.inputDictionary, resultDictionary)
+        
+        # Assert
+        self.assertDictEqual(correctDict, resultDictionary)
         
         
         
