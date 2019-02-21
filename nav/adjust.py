@@ -1,6 +1,16 @@
+'''
+    Created on Ferbuary 18, 2018
+
+    @author: William Hendrix
+'''
+
 import math
 
-# Adjust       
+'''
+    Adjust
+        Input: a dictionary of values
+        Output: an adjusted dictionary of values
+'''      
 def adjust(values = None):
     
     result = values

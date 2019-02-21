@@ -1,3 +1,9 @@
+'''
+    Created on February 18, 2018
+
+    @author: William Hendrix
+'''
+
 import unittest
 import nav.adjust as nav
 import httplib
