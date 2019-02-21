@@ -118,6 +118,9 @@ class adjustTest(unittest.TestCase):
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)
         
+    def test100_040ShouldReturnChangedValuesWithOperationAdjust(self):
+        
+        
          
         
     
