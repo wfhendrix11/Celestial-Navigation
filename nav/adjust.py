@@ -56,6 +56,16 @@ def adjust(values = None):
         if pressure < 100 or pressure > 1100:
             return {'error': 'pressure is invalid'}
         
+    if 'temperature' in values:
+        temperature = values['temperature']
+        
+        try:
+            temperature = int(temperature)
+        except ValueError:
+            return {'error': 'temperature must be an int'}
+        
+        if (temperature < 20 or temperature > 120):
+            return {'error': 'temperature is invalid'}
         
     # ------ Initialization ------
     result = values
