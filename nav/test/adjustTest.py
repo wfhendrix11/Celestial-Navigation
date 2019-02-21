@@ -86,14 +86,14 @@ class adjustTest(unittest.TestCase):
 #         self.setParm('horizon', 'artificial')
 #         self.setParm('op','adjust')
 #         self.setParm('temperature', '85')
-#         
+#          
 #         # Act
 #         result = self.microservice()
 #         resultDictionary = self.string2dict(result)
-#         
+#          
 #         # Assert
 #         self.assertDictEqual(correctDict, resultDictionary)
-#     
+#      
 #     def test100_020ShouldReturnChangedValuesWithOperationAdjust(self):   
 #         # Arrange
 #         correctDict = {'altitude':'45d11.9', 'observation': '45d15.2', 'height': '6', 
@@ -104,27 +104,27 @@ class adjustTest(unittest.TestCase):
 #         self.setParm('horizon', 'natural')
 #         self.setParm('op','adjust')
 #         self.setParm('temperature', '71')
-#         
+#          
 #         # Act
 #         result = self.microservice()
 #         resultDictionary = self.string2dict(result)
-#         
+#          
 #         # Assert
 #         self.assertDictEqual(correctDict, resultDictionary)
-#         
+#          
 #     def test100_030ShouldReturnChangedValuesWithOperationAdjustOnlyObservation(self):
 #         # Arrange
 #         correctDict = {'altitude':'41d59.0', 'observation': '42d0.0',  'op': 'adjust'}  
 #         self.setParm('observation', '42d0.0')
 #         self.setParm('op','adjust')
-#         
+#          
 #         # Act
 #         result = self.microservice()
 #         resultDictionary = self.string2dict(result)
-#         
+#          
 #         # Assert
 #         self.assertDictEqual(correctDict, resultDictionary)
-#         
+#          
 #     def test100_040ShouldReturnChangedValuesWithOperationAdjustExtraKey(self):
 #         # Arrange 
 #         correctDict = {'altitude':'41d59.0', 'observation': '42d0.0',  'op': 'adjust',
@@ -133,14 +133,14 @@ class adjustTest(unittest.TestCase):
 #         self.setParm('op','adjust')
 #         self.setParm('observation', '42d0.0')
 #         self.setParm('extraKey','ignore')  
-#         
+#          
 #         # Act
 #         result = self.microservice()
 #         resultDictionary = self.string2dict(result)
-#         
+#          
 #         # Assert
 #         self.assertDictEqual(correctDict, resultDictionary)
-#     
+#      
 #     def test100_050ShouldReturnChangedValuesWithOperationAdjustNoPressure(self):   
 #         # Arrange
 #         correctDict = {'altitude':'29d59.9', 'observation': '30d1.5', 'height': '19.0',
@@ -150,14 +150,14 @@ class adjustTest(unittest.TestCase):
 #         self.setParm('horizon', 'artificial')
 #         self.setParm('op','adjust')
 #         self.setParm('temperature', '85')    
-#                 
+#                  
 #         # Act
 #         result = self.microservice()
 #         resultDictionary = self.string2dict(result)
-#         
+#          
 #         # Assert
 #         self.assertDictEqual(correctDict, resultDictionary)
-#     
+#      
 #     def test100_060ShouldReturnChangedValuesWithOperationAdjustNoHeight(self):   
 #         # Arrange
 #         correctDict = {'altitude':'29d59.9', 'observation': '30d1.5',
@@ -167,14 +167,14 @@ class adjustTest(unittest.TestCase):
 #         self.setParm('horizon', 'artificial')
 #         self.setParm('op','adjust')
 #         self.setParm('temperature', '85')
-#         
+#          
 #         # Act
 #         result = self.microservice()
 #         resultDictionary = self.string2dict(result)
-#         
+#          
 #         # Assert
 #         self.assertDictEqual(correctDict, resultDictionary)
-#         
+#          
 #     def test100_070ShouldReturnChangedValuesWithOperationAdjustNoTemperature(self):   
 #         # Arrange
 #         correctDict = {'altitude':'29d59.9', 'observation': '30d1.5', 'height': '19.0',
@@ -184,14 +184,14 @@ class adjustTest(unittest.TestCase):
 #         self.setParm('pressure', '1000')
 #         self.setParm('horizon', 'artificial')
 #         self.setParm('op','adjust')
-#         
+#          
 #         # Act
 #         result = self.microservice()
 #         resultDictionary = self.string2dict(result)
-#         
+#          
 #         # Assert
 #         self.assertDictEqual(correctDict, resultDictionary)    
-#         
+#          
 #     def test100_080ShouldReturnChangedValuesWithOperationAdjustNoHorizon(self):   
 #         # Arrange
 #         correctDict = {'observation': '30d1.5', 'altitude': '29d55.7', 'height': '19.0',
@@ -201,41 +201,122 @@ class adjustTest(unittest.TestCase):
 #         self.setParm('pressure', '1000')
 #         self.setParm('op','adjust')
 #         self.setParm('temperature', '85')
-#         
+#          
 #         # Act
 #         result = self.microservice()
 #         resultDictionary = self.string2dict(result)
-#         
+#          
 #         # Assert
 #         self.assertDictEqual(correctDict, resultDictionary)  
-        
-    # --------------------- Sad path ---------------------  
-    
-    def test100_910ShouldReturnNoObservationProvided(self):
+#         
+#     # --------------------- Sad path ---------------------  
+#     
+#     def test100_910ShouldReturnNoObservationProvided(self):
+#         # Arrange
+#         correctDict = {'error': 'no observation provided'}  
+#         self.setParm('op','adjust')
+#           
+#         # Act
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#           
+#         # Assert
+#         self.assertDictEqual(correctDict, resultDictionary)
+#          
+#     def test100_920ShouldReturnXInvalidTooLarge(self):
+#         # Arrange
+#         correctDict = {'error': 'x is invalid'}  
+#         self.setParm('observation', '100d1.5')
+#         self.setParm('op','adjust')
+#            
+#         # Act
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#            
+#         # Assert
+#         self.assertDictEqual(correctDict, resultDictionary)
+#      
+#     def test100_925ShouldReturnXInvalidTooSmall(self):
+#         # Arrange
+#         correctDict = {'error': 'x is invalid'}  
+#         self.setParm('observation', '-1d1.5')
+#         self.setParm('op','adjust')
+#            
+#         # Act
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#            
+#         # Assert
+#         self.assertDictEqual(correctDict, resultDictionary)
+#  
+#     def test100_930ShouldReturnYInvalidTooLarge(self):
+#         # Arrange
+#         correctDict = {'error': 'y is invalid'}  
+#         self.setParm('observation', '30d61')
+#         self.setParm('op','adjust')
+#             
+#         # Act
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#             
+#         # Assert
+#         self.assertDictEqual(correctDict, resultDictionary)      
+#      
+#     def test100_935ShouldReturnYInvalidTooSmall(self):
+#         # Arrange
+#         correctDict = {'error': 'y is invalid'}  
+#         self.setParm('observation', '30d-1')
+#         self.setParm('op','adjust')
+#             
+#         # Act
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#             
+#         # Assert
+#         self.assertDictEqual(correctDict, resultDictionary)
+#     
+#     def test100_945ShouldReturnHeightLessThanZero(self):
+#         # Arrange
+#         correctDict = {'error': 'height must be greater than 0'}  
+#         self.setParm('observation', '30d1.5')
+#         self.setParm('height', '-1')
+#         self.setParm('op','adjust')
+#              
+#         # Act
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#              
+#         # Assert
+#         self.assertDictEqual(correctDict, resultDictionary)
+
+    def test100_950ShouldReturnPressureInvalid(self):
         # Arrange
-        correctDict = {'error': 'no observation provided'}  
+        correctDict = {'error': 'pressure is invalid'}  
+        self.setParm('observation', '30d1.5')
+        self.setParm('pressure', '90')
         self.setParm('op','adjust')
-        
+              
         # Act
         result = self.microservice()
         resultDictionary = self.string2dict(result)
-        
+              
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)
         
-    def test100_920ShouldReturnObservationTooLarge(self):
+    def test100_955ShouldReturnPressureInvalid(self):
         # Arrange
-        correctDict = {'error': 'observation too large'}  
-        self.setParm('observation', '100')
+        correctDict = {'error': 'pressure is invalid'}  
+        self.setParm('observation', '30d1.5')
+        self.setParm('pressure', '1200')
         self.setParm('op','adjust')
-         
+              
         # Act
         result = self.microservice()
         resultDictionary = self.string2dict(result)
-         
+              
         # Assert
-        self.assertDictEqual(correctDict, resultDictionary)    
-        
+        self.assertDictEqual(correctDict, resultDictionary)
+
         
         
         

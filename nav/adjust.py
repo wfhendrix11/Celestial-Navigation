@@ -5,7 +5,6 @@
 '''
 
 import math
-import re
 
 '''
     Adjust
@@ -23,11 +22,41 @@ def adjust(values = None):
     
     if 'observation' in values:
         observation = values['observation']
-        observation = re.match('^[0-9]+d[0-9]+.\d$', observation)
+        
+        x, y = observation.split("d")
+        if int(x) < 0 or int(x) > 89:
+            return {'error': 'x is invalid'}
+        
+        y = y.lstrip("0")    
+        if float(y) < 0.0 or not float(y) < 60:
+            return {'error': 'y is invalid'}
+        
+        if int(x) == 0 and float(y) < 0.1:
+            return {'error': 'observation is invalid'}
+        
+    if 'height' in values:
+        height = values['height'] 
+        
+        try:
+            height = float(height)
+        except ValueError:
+            {'error': 'height must be a float'}
+        
+        if (height < 0):
+            return {'error': 'height must be greater than 0'}
+        
+    if 'pressure' in values:
+        pressure = values['pressure']
+        
+        try:
+            pressure = int(pressure)
+        except ValueError:
+            return {'error': 'pressure must be an int'}
+        
+        if pressure < 100 or pressure > 1100:
+            return {'error': 'pressure is invalid'}
         
         
-        
-      
     # ------ Initialization ------
     result = values
     
