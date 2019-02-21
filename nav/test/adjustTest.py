@@ -105,7 +105,7 @@ class adjustTest(unittest.TestCase):
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)
         
-    def test100_030ShouldReturnChangedValuesWithOperationAdjust(self):
+    def test100_030ShouldReturnChangedValuesWithOperationAdjustOnlyObservation(self):
         # Arrange
         correctDict = {'altitude':'41d59.0', 'observation': '42d0.0',  'op': 'adjust'}  
         self.setParm('observation', '42d0.0')
@@ -118,7 +118,7 @@ class adjustTest(unittest.TestCase):
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)
         
-    def test100_040ShouldReturnChangedValuesWithOperationAdjust(self):
+    def test100_040ShouldReturnChangedValuesWithOperationAdjustExtraKey(self):
         # Arrange 
         correctDict = {'altitude':'41d59.0', 'observation': '42d0.0',  'op': 'adjust',
                        'extraKey':'ignore'}
@@ -134,10 +134,10 @@ class adjustTest(unittest.TestCase):
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)
     
-    def test100_050ShouldReturnChangedValuesWithOperationAdjust(self):   
+    def test100_050ShouldReturnChangedValuesWithOperationAdjustNoPressure(self):   
         # Arrange
         correctDict = {'altitude':'29d59.9', 'observation': '30d1.5', 'height': '19.0',
-                       'pressure': '1010', 'horizon': 'artificial', 'op': 'adjust', 'temperature': '85'}
+                       'horizon': 'artificial', 'op': 'adjust', 'temperature': '85'}
         self.setParm('observation', '30d1.5')
         self.setParm('height', '19.0')
         self.setParm('horizon', 'artificial')
@@ -151,10 +151,56 @@ class adjustTest(unittest.TestCase):
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)
     
+    def test100_060ShouldReturnChangedValuesWithOperationAdjustNoHeight(self):   
+        # Arrange
+        correctDict = {'altitude':'29d59.9', 'observation': '30d1.5',
+                       'pressure': '1000', 'horizon': 'artificial', 'op': 'adjust', 'temperature': '85'}
+        self.setParm('observation', '30d1.5')
+        self.setParm('pressure', '1000')
+        self.setParm('horizon', 'artificial')
+        self.setParm('op','adjust')
+        self.setParm('temperature', '85')
         
+        # Act
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
         
+        # Assert
+        self.assertDictEqual(correctDict, resultDictionary)
         
+    def test100_070ShouldReturnChangedValuesWithOperationAdjustNoTemperature(self):   
+        # Arrange
+        correctDict = {'altitude':'29d59.9', 'observation': '30d1.5', 'height': '19.0',
+                       'pressure': '1000', 'horizon': 'artificial', 'op': 'adjust'}
+        self.setParm('observation', '30d1.5')
+        self.setParm('height', '19.0')
+        self.setParm('pressure', '1000')
+        self.setParm('horizon', 'artificial')
+        self.setParm('op','adjust')
         
+        # Act
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+        
+        # Assert
+        self.assertDictEqual(correctDict, resultDictionary)    
+        
+    def test100_080ShouldReturnChangedValuesWithOperationAdjustNoHorizon(self):   
+        # Arrange
+        correctDict = {'observation': '30d1.5', 'altitude': '29d55.7', 'height': '19.0',
+                       'pressure': '1000', 'op': 'adjust', 'temperature': '85'}
+        self.setParm('observation', '30d1.5')
+        self.setParm('height', '19.0')
+        self.setParm('pressure', '1000')
+        self.setParm('op','adjust')
+        self.setParm('temperature', '85')
+        
+        # Act
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+        
+        # Assert
+        self.assertDictEqual(correctDict, resultDictionary)    
         
         
         
