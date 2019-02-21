@@ -221,6 +221,19 @@ class adjustTest(unittest.TestCase):
         resultDictionary = self.string2dict(result)
         
         # Assert
+        self.assertDictEqual(correctDict, resultDictionary)
+        
+    def test100_920ShouldReturnObservationTooLarge(self):
+        # Arrange
+        correctDict = {'error': 'observation too large'}  
+        self.setParm('observation', '100')
+        self.setParm('op','adjust')
+         
+        # Act
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+         
+        # Assert
         self.assertDictEqual(correctDict, resultDictionary)    
         
         

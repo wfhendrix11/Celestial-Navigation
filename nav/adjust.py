@@ -5,6 +5,7 @@
 '''
 
 import math
+import re
 
 '''
     Adjust
@@ -19,6 +20,13 @@ def adjust(values = None):
     
     if (not('observation' in values)):
         return {'error': 'no observation provided'}
+    
+    if 'observation' in values:
+        observation = values['observation']
+        observation = re.match('^[0-9]+d[0-9]+.\d$', observation)
+        
+        
+        
       
     # ------ Initialization ------
     result = values
