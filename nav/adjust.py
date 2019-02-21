@@ -67,6 +67,11 @@ def adjust(values = None):
         if (temperature < 20 or temperature > 120):
             return {'error': 'temperature is invalid'}
         
+    if 'horizon' in values:
+        horizon = values['horizon'].lower()
+        if horizon != "natural" and horizon != "artificial":
+            return {'error': 'horizon is invalid'}
+        
     # ------ Initialization ------
     result = values
     

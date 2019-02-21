@@ -316,34 +316,49 @@ class adjustTest(unittest.TestCase):
 #               
 #         # Assert
 #         self.assertDictEqual(correctDict, resultDictionary)
+# 
+#     def test100_960ShouldReturnTemperatureInvalidTooSmall(self):
+#         # Arrange
+#         correctDict = {'error': 'temperature is invalid'}  
+#         self.setParm('observation', '30d1.5')
+#         self.setParm('temperature', '0')
+#         self.setParm('op','adjust')
+#                
+#         # Act
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#                
+#         # Assert
+#         self.assertDictEqual(correctDict, resultDictionary)
+#          
+#     def test100_965ShouldReturnTemperatureInvalidTooLarge(self):
+#         # Arrange
+#         correctDict = {'error': 'temperature is invalid'}  
+#         self.setParm('observation', '30d1.5')
+#         self.setParm('temperature', '130')
+#         self.setParm('op','adjust')
+#                
+#         # Act
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#                
+#         # Assert
+#         self.assertDictEqual(correctDict, resultDictionary)
 
-    def test100_960ShouldReturnTemperatureInvalidTooSmall(self):
+    def test100_970ShouldReturnHorizonInvalid(self):
         # Arrange
-        correctDict = {'error': 'temperature is invalid'}  
+        correctDict = {'error': 'horizon is invalid'}  
         self.setParm('observation', '30d1.5')
-        self.setParm('temperature', '0')
+        self.setParm('horizon', 'notahorizon')
         self.setParm('op','adjust')
-               
+                
         # Act
         result = self.microservice()
         resultDictionary = self.string2dict(result)
-               
+                
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)
-         
-    def test100_965ShouldReturnTemperatureInvalidTooLarge(self):
-        # Arrange
-        correctDict = {'error': 'temperature is invalid'}  
-        self.setParm('observation', '30d1.5')
-        self.setParm('temperature', '130')
-        self.setParm('op','adjust')
-               
-        # Act
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-               
-        # Assert
-        self.assertDictEqual(correctDict, resultDictionary)
+
         
         
         
