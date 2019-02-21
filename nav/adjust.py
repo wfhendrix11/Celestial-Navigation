@@ -64,7 +64,7 @@ def adjust(values = None):
         except ValueError:
             return {'error': 'temperature must be an int'}
         
-        if (temperature < 20 or temperature > 120):
+        if (temperature < -20 or temperature > 120):
             return {'error': 'temperature is invalid'}
         
     if 'horizon' in values:
