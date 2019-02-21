@@ -13,6 +13,14 @@ import math
 '''      
 def adjust(values = None):
     
+    # ------ Validation ------    
+    if values is None or not isinstance(values, dict):
+        return {'error': 'values is not provided'}
+    
+    if (not('observation' in values)):
+        return {'error': 'no observation provided'}
+      
+    # ------ Initialization ------
     result = values
     
     if "height" in values:
@@ -40,6 +48,7 @@ def adjust(values = None):
     else:
         dip = 0
         
+    # ------ Calculation ------
     observation = values['observation']
     x, y = observation.split("d")
     y = y.lstrip("0")

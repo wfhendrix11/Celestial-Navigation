@@ -73,7 +73,8 @@ class adjustTest(unittest.TestCase):
     #                        -- return {'error':'op is not a legal operation'}
     #                     missing dictionary            dispatch()
     #                        -- return {'error':'dictionary is missing'}
-    # Happy path
+    
+    # --------------------- Happy path ---------------------
 
     def test100_010ShouldReturnChangedValuesWithOperationAdjust(self):   
         # Arrange
@@ -206,8 +207,20 @@ class adjustTest(unittest.TestCase):
         resultDictionary = self.string2dict(result)
         
         # Assert
-        self.assertDictEqual(correctDict, resultDictionary)    
+        self.assertDictEqual(correctDict, resultDictionary)  
         
+    # --------------------- Sad path ---------------------  
+    
+    def test100_900ShouldReturnChangedValuesWithOperationAdjustOnlyObservation(self):
+        # Arrange
+        correctDict = {'error': 'values is not provided'}  
+        
+        # Act
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+        
+        # Assert
+        self.assertDictEqual(correctDict, resultDictionary)    
         
         
         
