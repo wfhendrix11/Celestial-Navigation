@@ -89,9 +89,14 @@ class adjustTest(unittest.TestCase):
     
     def test100_020ShouldReturnChangedValuesWithOperationAdjust(self):   
         # Arrange
-        correctDict = {'altitude':'41d59.0', 'observation': '42d0.0',  'op': 'adjust'}  
-        self.setParm('observation', '42d.0.0')
+        correctDict = {'altitude':'45d11.9', 'observation': '45d15.2', 'height': '6', 
+                       'pressure': '1010', 'horizon': 'natural', 'op': 'adjust', 'temperature': '71'}
+        self.setParm('observation', '45d15.2')
+        self.setParm('height', '6')
+        self.setParm('pressure', '1010')
+        self.setParm('horizon', 'natural')
         self.setParm('op','adjust')
+        self.setParm('temperature', '71')
         
         # Act
         result = self.microservice()
@@ -99,6 +104,8 @@ class adjustTest(unittest.TestCase):
         
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)
+        
+    
         
         
         
