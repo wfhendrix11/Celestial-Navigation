@@ -13,7 +13,7 @@ import json
 class adjustTest(unittest.TestCase):
 
     def setUp(self):
-    	self.inputDictionary = {}
+        self.inputDictionary = {}
         self.errorKey = "error"
         self.solutionKey = "probability"
         self.BX_PATH = '/nav?'

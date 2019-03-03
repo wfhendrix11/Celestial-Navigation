@@ -1,4 +1,6 @@
-import adjust
+import nav.adjust as adjust
+import nav.predict as predict
+
 def dispatch(values=None):
 
     #Validate param
@@ -15,8 +17,8 @@ def dispatch(values=None):
         result = adjust.adjust(values)
         return result    
     elif(values['op'] == 'predict'):
-        # Assignment 7
-        return values    #This calculation is stubbed out
+        result = predict.predict(values)
+        return result
     elif(values['op'] == 'correct'):
         return values    #This calculation is stubbed out
     elif(values['op'] == 'locate'):
