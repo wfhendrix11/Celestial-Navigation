@@ -15,6 +15,7 @@ def dispatch(values=None):
         result = adjust.adjust(values)
         return result    
     elif(values['op'] == 'predict'):
+        # Assignment 7
         return values    #This calculation is stubbed out
     elif(values['op'] == 'correct'):
         return values    #This calculation is stubbed out
