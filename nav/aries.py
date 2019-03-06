@@ -16,7 +16,7 @@ class Aries:
         :return an adjusted dictionary of values
     '''
     @classmethod 
-    def getGreenwichHourAngle(year, month, day, hour, minute, second):
+    def getGreenwichHourAngle(cls, year, month, day, hour, minute, second):
         
         referenceDatetime = str(year) + ",01,01,00,00,00"
         observationDatetime = str(year) + ',' + str(month) + ',' + str(day) + ','
@@ -36,18 +36,6 @@ class Aries:
     @classmethod
     def getPrimeMeridian(cls, year):
     
-        referenceRotation = Angle.stringToAngle("100d42.6")
-        yearlyGHADecrement = Angle.stringToAngle("-0d14.32")
-        deltaYear = year - 2001
-        cumulativeProgression = Angle.multiply(yearlyGHADecrement, deltaYear)
-        
-        dailyRotation = Angle.stringToAngle("0d59.0")
-        leapYears = math.floor((year - 2001) / 4)
-        leapProgression = Angle.multiply(dailyRotation, leapYears)
-        
-        totalProgression = Angle.add(referenceRotation, cumulativeProgression)
-        totalProgression = Angle.add(totalProgression, leapProgression)
-        
-        return totalProgression
+        return 0
         
         
