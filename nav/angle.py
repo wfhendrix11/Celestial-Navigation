@@ -98,6 +98,7 @@ class Angle:
         
         if negative:
             hours = -hours
+            
         return Angle(hours, minuteDec)
     
     
