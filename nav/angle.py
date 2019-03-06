@@ -51,7 +51,8 @@ class Angle:
         :param string
         :return sum of the angles
     '''
-    def stringToAngle(self, cls, string):
+    @classmethod
+    def stringToAngle(cls, string):
         hourDegree = 0
         minuteDegree = 0
         
@@ -76,12 +77,13 @@ class Angle:
             
             return Angle(hourDegree, minuteDegree)
     
-        '''
+    '''
     stringToAngle
         :param decimal
         :return sum of the angles
-    '''           
-    def decimalToAngle(self, cls, decimal = None):
+    '''
+    @classmethod       
+    def decimalToAngle(cls, decimal = None):
         
         negative = decimal < 0
         (left, right) = str(decimal).split(".")

@@ -6,7 +6,7 @@ Created on March 1, 2018
 
 from datetime import datetime, timedelta
 import math
-from angle import Angle
+from nav.angle import Angle
 
 class Aries:
     

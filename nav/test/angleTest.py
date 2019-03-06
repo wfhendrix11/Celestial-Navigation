@@ -1,6 +1,5 @@
 import unittest
-
-from nav.utility.angle import Angle
+from nav.angle import Angle
 
 class AngleTest(unittest.TestCase):
 
