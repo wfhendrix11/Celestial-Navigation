@@ -34,9 +34,9 @@ class Angle:
         :return sum of the angles
     ''' 
     @classmethod          
-    def add(angle1 = None, angle2 = None):
+    def add(cls, angle1 = None, angle2 = None):
         result = angle1.decimal + angle2.decimal
-        return Angle.from_decimal(result)
+        return Angle.decimalToAngle(result)
     
     '''
     multiply
@@ -45,7 +45,7 @@ class Angle:
     '''  
     def multiply(self, angle = None, number = None):      
         result = angle.decimal * number
-        return Angle.from_decimal(result)
+        return Angle.decimalToAngle(result)
     
     '''
     stringToAngle
