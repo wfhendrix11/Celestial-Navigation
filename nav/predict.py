@@ -7,9 +7,9 @@
 import math
 
 '''
-    Adjust
-        Input: a dictionary of values
-        Output: a prediction of dictionary of values
+    Predict
+        :param a dictionary of values
+        :return a prediction of dictionary of values
 '''      
 def predict(values = None):
     return values
