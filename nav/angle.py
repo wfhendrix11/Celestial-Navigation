@@ -42,8 +42,9 @@ class Angle:
     multiply
         :param angle and a number
         :return product of the angle and number
-    '''  
-    def multiply(self, angle = None, number = None):      
+    ''' 
+    @classmethod 
+    def multiply(cls, angle = None, number = None):      
         result = angle.decimal * number
         return Angle.decimalToAngle(result)
     
