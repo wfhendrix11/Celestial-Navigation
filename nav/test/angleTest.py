@@ -1,3 +1,9 @@
+'''
+Created on March 5, 2018
+
+@author: William Hendrix
+'''
+
 import unittest
 from nav.angle import Angle
 
