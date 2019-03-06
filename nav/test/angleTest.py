@@ -21,3 +21,9 @@ class AngleTest(unittest.TestCase):
         self.assertEqual(angle.hourDegree, 64)
         self.assertEqual(angle.minuteDegree, 49.7)
         
+    def test300_010ShouldReturnSumOfAngles(self):
+        angle1 = Angle.stringToAngle("100d4.8")
+        angle2 = Angle.stringToAngle("-1d0.0")
+        result = Angle.add(angle1, angle2)
+        self.assertEqual(result.str, "99d4.8")
+        
