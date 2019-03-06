@@ -18,3 +18,4 @@ class AriesTest(unittest.TestCase):
     def test100_ShouldReturnGreenwichHourAngle(self):
         angle = Aries.getGreenwichHourAngle(2016, 1, 17, 3, 15, 42)
         self.assertEqual(angle.str, "164d54.5")
+        pass
