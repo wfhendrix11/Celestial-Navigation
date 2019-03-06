@@ -12,8 +12,10 @@ class Aries:
     
     '''
     getGreenwich
-        Input: year, month, day, hour, minute, seconds
-        Output: an adjusted dictionary of values
-    ''' 
-    def getGreenwich(self, year, month, day, hour, minute, second):
+        :params year, month, day, hour, minute, seconds
+        :return an adjusted dictionary of values
+    '''
+    @classmethod 
+    def getGreenwichHourAngle(year, month, day, hour, minute, second):
+        
         

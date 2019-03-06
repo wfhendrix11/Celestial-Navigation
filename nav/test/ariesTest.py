@@ -14,3 +14,5 @@ class AriesTest(unittest.TestCase):
     
     def tearDown(self):
         pass
+    
+    def test100_ShouldReturnGreenwichHourAngle(self):
