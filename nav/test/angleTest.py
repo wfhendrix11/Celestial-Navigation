@@ -18,6 +18,6 @@ class AngleTest(unittest.TestCase):
     def test200_010ShouldReturnDecimalConvertedToAngle(self):
         angle = Angle.decimalToAngle(16.180079)
         
-        self.assertEqual(angle.hour_degree, 64)
-        self.assertEqual(angle.minute_degree, 49.7)
+        self.assertEqual(angle.hourDegree, 64)
+        self.assertEqual(angle.minuteDegree, 49.7)
         
