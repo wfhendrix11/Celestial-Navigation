@@ -37,4 +37,7 @@ class AngleTest(unittest.TestCase):
         # Assert
         result = Angle.add(angle1, angle2)
         self.assertEqual(result.str, "99d4.8")
+    
+    def test400_010ShouldReturnProductOfAngles(self):
+        pass
         
