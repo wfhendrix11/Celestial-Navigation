@@ -32,8 +32,9 @@ class Angle:
     add
         :param two angles
         :return sum of the angles
-    '''           
-    def add(self, angle1 = None, angle2 = None):
+    ''' 
+    @classmethod          
+    def add(angle1 = None, angle2 = None):
         result = angle1.decimal + angle2.decimal
         return Angle.from_decimal(result)
     
