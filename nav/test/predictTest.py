@@ -80,66 +80,66 @@ class predictTest(unittest.TestCase):
         # Arrange
         correctDict = {'op':'predict', 'body': 'Aldebaran', 'date': '2016-01-17',
                        'time': '03:15:42', 'long':'95d41.5', 'lat':'16d32.3'}
-          
+           
         self.setParm('op','predict')
         self.setParm('body','Aldebaran')  
         self.setParm('date','2016-01-17')
         self.setParm('time','03:15:42') 
-            
+             
         # Act
         result = self.microservice()
         resultDictionary = self.string2dict(result)
-            
+             
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)
-      
+       
     def test100_020ShouldReturnChangedValuesWithOperationPredict(self):   
         # Arrange
         correctDict = {'op':'predict', 'body': 'Betelgeuse', 'date': '2016-01-17',
                        'time': '03:15:42', 'long':'75d53.5', 'lat':'7d24.3'}
-           
+            
         self.setParm('op','predict')
         self.setParm('body','Betelgeuse')  
         self.setParm('date','2016-01-17')
         self.setParm('time','03:15:42') 
-             
+              
         # Act
         result = self.microservice()
         resultDictionary = self.string2dict(result)
-             
+              
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)
-        
+         
     # --------------------- Sad path ---------------------     
-          
+           
     def test200_010ShouldReturnNoBody(self):
         # Arrange
         correctDict = {'error':'no body provided'}
-          
+           
         self.setParm('op','predict')
         self.setParm('date','2016-01-17')
         self.setParm('time','03:15:42') 
-            
+             
         # Act
         result = self.microservice()
         resultDictionary = self.string2dict(result)
-            
+             
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)
-        
+         
     def test200_020ShouldReturnUnknownStar(self):
         # Arrange
         correctDict = {'error':'unknown star'}
-         
+          
         self.setParm('op','predict')
         self.setParm('body','unknown') 
         self.setParm('date','2016-01-17')
         self.setParm('time','03:15:42') 
-           
+            
         # Act
         result = self.microservice()
         resultDictionary = self.string2dict(result)
-           
+            
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)
         

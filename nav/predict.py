@@ -5,7 +5,6 @@
 '''
 
 import math
-import re
 
 from nav.stars import STARS
 from nav.angle import Angle
@@ -31,8 +30,6 @@ def predict(values = None):
     
     if "date" in values:
         date = values['date']
-        date = re.match('^2[0-9]{3}-[0-9]{2}-[0-9]{2}$', date)
-        date = date.group()
         (year, month, day) = date.split('-')
         year = int(year)
         month = int(month)
