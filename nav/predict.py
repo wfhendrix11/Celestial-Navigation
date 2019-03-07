@@ -45,7 +45,7 @@ def predict(values = None):
         minute = int(minute)
         second = int(second)
         
-        if hour > 23 or minute > 59:
+        if hour > 23 or minute > 59 or second > 59:
             return {'error': 'invalid time'}
     
     # ------ Initialization ------
