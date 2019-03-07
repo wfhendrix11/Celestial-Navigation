@@ -23,6 +23,10 @@ def predict(values = None):
     if (not('body' in values)):
         return {'error': 'no body provided'}
     
+    starName = values['body']
+    if starName not in STARS:
+        return {'error': 'unknown star'}
+    
     # ------ Initialization ------
     result = values
     
