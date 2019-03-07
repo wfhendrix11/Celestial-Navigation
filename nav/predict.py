@@ -5,6 +5,8 @@
 '''
 
 import math
+import re
+
 from nav.stars import STARS
 from nav.angle import Angle
 from nav.aries import Aries
@@ -26,6 +28,8 @@ def predict(values = None):
     starName = values['body']
     if starName not in STARS:
         return {'error': 'unknown star'}
+    
+        
     
     # ------ Initialization ------
     result = values
