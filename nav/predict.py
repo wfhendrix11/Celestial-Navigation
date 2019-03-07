@@ -37,7 +37,16 @@ def predict(values = None):
         
         if year < 2001:
             return {'error': 'invalid date'}
+    
+    if "time" in values:
+        time = values['time']
+        (hour, minute, second) = time.split(':')
+        hour = int(hour)
+        minute = int(minute)
+        second = int(second)
         
+        if hour > 23:
+            return {'error': 'invalid time'}
     
     # ------ Initialization ------
     result = values
