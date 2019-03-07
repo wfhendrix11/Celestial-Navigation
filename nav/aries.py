@@ -60,7 +60,8 @@ class Aries:
     '''
     @classmethod
     def getEarthRotationSinceObservation(cls, elapsedSeconds):
-        rotation = round(elapsedSeconds)
+        full_angle = Angle.stringToAngle("360d00.0")
+        rotation = round(elapsedSeconds/86164.1000, 5)
         
         return Angle.decimalToAngle(rotation)
         

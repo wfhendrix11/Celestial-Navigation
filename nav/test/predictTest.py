@@ -78,8 +78,23 @@ class predictTest(unittest.TestCase):
 
     def test100_010ShouldReturnChangedValuesWithOperationPredict(self):   
         # Arrange
+        correctDict = {'op':'predict', 'body': 'Aldebaran', 'date': '2016-01-17',
+                       'time': '03:15:42', 'long':'95d41.5', 'lat':'16d32.3'}
+        
+        self.setParm('op','predict')
+        self.setParm('body','Aldebaran')  
+        self.setParm('date','2016-01-17')
+        self.setParm('time','03:15:42') 
           
         # Act
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
           
         # Assert
-        pass
+        self.assertDictEqual(correctDict, resultDictionary)
+        
+        
+        
+        
+        
+        
