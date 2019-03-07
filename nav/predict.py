@@ -64,8 +64,8 @@ def predict(values = None):
         
     if longitude.hourDegree == 360 and longitude.minuteDegree > 0:
         longitude = Angle.add(longitude, fullAngle)
-        
+                
     result['lat'] = latitude.str
-    result['long'] = longitude.str - 0.1
+    result['long'] = longitude.str
     
     return result
