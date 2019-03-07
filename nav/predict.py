@@ -16,6 +16,13 @@ from nav.aries import Aries
 '''      
 def predict(values = None):
     
+    # ------ Validation ------
+    if values is None or not isinstance(values, dict):
+        return {'error': 'values is not provided'}
+    
+    if (not('body' in values)):
+        return {'error': 'no body provided'}
+    
     # ------ Initialization ------
     result = values
     

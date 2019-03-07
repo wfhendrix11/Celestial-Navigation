@@ -110,13 +110,12 @@ class predictTest(unittest.TestCase):
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)    
         
-    def test100_030ShouldReturnChangedValuesWithOperationPredictUnknownStar(self):
+    def test100_030ShouldReturnChangedValuesWithOperationPredictNoBody(self):
         # Arrange
-        correctDict = {'op':'predict', 'body': 'unknown', 'date': '2016-01-17',
-                       'time': '03:15:42', 'error':'star not in catalog'}
+        correctDict = {'op':'predict', 'date': '2016-01-17',
+                       'time': '03:15:42', 'error':'no body provided'}
         
         self.setParm('op','predict')
-        self.setParm('body','unknown')  
         self.setParm('date','2016-01-17')
         self.setParm('time','03:15:42') 
           
