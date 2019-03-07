@@ -92,9 +92,40 @@ class predictTest(unittest.TestCase):
           
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)
+    
+    def test100_020ShouldReturnChangedValuesWithOperationPredict(self):   
+        # Arrange
+        correctDict = {'op':'predict', 'body': 'Betelgeuse', 'date': '2016-01-17',
+                       'time': '03:15:42', 'long':'75d53.5', 'lat':'7d24.3'}
         
+        self.setParm('op','predict')
+        self.setParm('body','Betelgeuse')  
+        self.setParm('date','2016-01-17')
+        self.setParm('time','03:15:42') 
+          
+        # Act
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+          
+        # Assert
+        self.assertDictEqual(correctDict, resultDictionary)    
         
+    def test100_030ShouldReturnChangedValuesWithOperationPredictUnknownStar(self):
+        # Arrange
+        correctDict = {'op':'predict', 'body': 'unknown', 'date': '2016-01-17',
+                       'time': '03:15:42', 'error':'star not in catalog'}
         
+        self.setParm('op','predict')
+        self.setParm('body','unknown')  
+        self.setParm('date','2016-01-17')
+        self.setParm('time','03:15:42') 
+          
+        # Act
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+          
+        # Assert
+        self.assertDictEqual(correctDict, resultDictionary)             
         
         
         

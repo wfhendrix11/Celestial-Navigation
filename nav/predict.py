@@ -59,6 +59,6 @@ def predict(values = None):
         longitude = Angle.add(longitude, fullAngle)
         
     result['lat'] = latitude.str
-    result['long'] = longitude.str
+    result['long'] = longitude.str - 0.1
     
     return result
