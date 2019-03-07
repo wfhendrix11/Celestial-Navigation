@@ -160,6 +160,21 @@ class predictTest(unittest.TestCase):
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)    
                       
-        
+    def test200_040ShouldReturnInvalidTimeHour(self):
+    
+        # Arrange
+        correctDict = {'error':'invalid time'}
+           
+        self.setParm('op','predict')
+        self.setParm('body','Betelgeuse')  
+        self.setParm('date','2016-01-17')
+        self.setParm('time','25:15:42') 
+             
+        # Act
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+             
+        # Assert
+        self.assertDictEqual(correctDict, resultDictionary)        
         
         
