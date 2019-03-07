@@ -177,7 +177,7 @@ class predictTest(unittest.TestCase):
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)
         
-    def test200_040ShouldReturnInvalidTimeMinute(self):
+    def test200_041ShouldReturnInvalidTimeMinute(self):
     
         # Arrange
         correctDict = {'error':'invalid time'}
@@ -192,6 +192,23 @@ class predictTest(unittest.TestCase):
         resultDictionary = self.string2dict(result)
              
         # Assert
-        self.assertDictEqual(correctDict, resultDictionary)        
+        self.assertDictEqual(correctDict, resultDictionary)
+        
+    def test200_042ShouldReturnInvalidTimeSecond(self):
+    
+        # Arrange
+        correctDict = {'error':'invalid time'}
+           
+        self.setParm('op','predict')
+        self.setParm('body','Betelgeuse')  
+        self.setParm('date','2016-01-17')
+        self.setParm('time','03:02:70') 
+             
+        # Act
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+             
+        # Assert
+        self.assertDictEqual(correctDict, resultDictionary)         
         
         
