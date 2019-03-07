@@ -185,7 +185,7 @@ class predictTest(unittest.TestCase):
         self.setParm('op','predict')
         self.setParm('body','Betelgeuse')  
         self.setParm('date','2016-01-17')
-        self.setParm('time','25:70:42') 
+        self.setParm('time','03:70:42') 
              
         # Act
         result = self.microservice()
