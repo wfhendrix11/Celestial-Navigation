@@ -29,6 +29,17 @@ def predict(values = None):
     if starName not in STARS:
         return {'error': 'unknown star'}
     
+    if "date" in values:
+        date = values['date']
+        date = re.match('^2[0-9]{3}-[0-9]{2}-[0-9]{2}$', date)
+        date = date.group()
+        (year, month, day) = date.split('-')
+        year = int(year)
+        month = int(month)
+        day = int(day)
+        
+        if year < 2001:
+            return {'error': 'invalid date'}
         
     
     # ------ Initialization ------
