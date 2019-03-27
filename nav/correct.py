@@ -7,6 +7,7 @@
 '''
     correct
         :param a dictionary of values.
-        :return teh difference between the observed and expected angle. 
+        :return the difference between the observed and expected angle. 
 '''      
 def correct(values = None):
+    
