@@ -161,9 +161,26 @@ class correctTest(unittest.TestCase):
 #               
 #         # Assert
 #         self.assertDictEqual(correctDict, resultDictionary)
+#        
+#     def test200_014ShouldReturnMandatoryInformationMissing_AssumedLat(self):
+#         # Arrange
+#         correctDict = {'error': 'mandatory information missing'}
+#             
+#         self.setParm('op','correct')
+#         self.setParm('lat','16d32.3')
+#         self.setParm('long','95d41.6')
+#         self.setParm('altitude','13d42.3')
+#         self.setParm('assumedLong','350d35.3') 
+#               
+#         # Act
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#               
+#         # Assert
+#         self.assertDictEqual(correctDict, resultDictionary)
 
-        
-    def test200_014ShouldReturnMandatoryInformationMissing_AssumedLat(self):
+       
+    def test200_015ShouldReturnMandatoryInformationMissing_AssumedLong(self):
         # Arrange
         correctDict = {'error': 'mandatory information missing'}
             
@@ -171,7 +188,7 @@ class correctTest(unittest.TestCase):
         self.setParm('lat','16d32.3')
         self.setParm('long','95d41.6')
         self.setParm('altitude','13d42.3')
-        self.setParm('assumedLong','350d35.3') 
+        self.setParm('assumedLat','53d38.4') 
               
         # Act
         result = self.microservice()
