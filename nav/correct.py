@@ -14,6 +14,11 @@ from nav.angle import Angle
 def correct(values = None):
     
     # ----- Validation -----
+    if values is None or not isinstance(values, dict):
+        return {'error': 'values is not provided'}
+    
+    if (not('lat' in values or 'long' in values or 'altitude' in values or 'assumedLat' in values or 'assumedLong' in values)):
+        return {'error': 'mandatory information missing'}
     
     # ----- Initialization -----
     result = values
