@@ -28,6 +28,8 @@ def correct(values = None):
     if (not('assumedLong' in values)):
         return {'error': 'mandatory information missing'}
     
+    # validate lat
+    
     # ----- Initialization -----
     result = values
     
