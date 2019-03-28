@@ -252,7 +252,7 @@ class correctTest(unittest.TestCase):
 
     def test200_050ShouldReturnInvalidAssumedLong(self):
         # Arrange
-        correctDict = {'error': 'assumedlong is invalid'}
+        correctDict = {'error': 'assumedLong is invalid'}
               
         self.setParm('op','correct')
         self.setParm('lat','16d32.3')  
