@@ -100,7 +100,7 @@ class correctTest(unittest.TestCase):
     
     def test200_010ShouldReturnMandatoryInformationMissing(self):
         # Arrange
-        correctDict = {'error: mandatory information missing'}
+        correctDict = {'error': 'mandatory information missing'}
             
         self.setParm('op','correct')
               
