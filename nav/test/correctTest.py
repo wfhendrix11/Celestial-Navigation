@@ -76,41 +76,41 @@ class correctTest(unittest.TestCase):
     
     # --------------------- Happy path ---------------------
     
-    def test100_010ShouldReturnChangedValuesWithOperationCorrect(self):   
-        # Arrange
-        correctDict = {'assumedLat': '53d38.4', 'correctedDistance': 104, 'altitude': '13d42.3', 
-                       'assumedLong': '350d35.3', 'long': '95d41.6', 'lat': '16d32.3', 
-                       'correctedAzimuth': '262d55.6', 'op': 'correct'}
-            
-        self.setParm('op','correct')
-        self.setParm('lat','16d32.3')  
-        self.setParm('long','95d41.6')
-        self.setParm('altitude','13d42.3')
-        self.setParm('assumedLat','53d38.4')
-        self.setParm('assumedLong','350d35.3')  
-              
-        # Act
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-              
-        # Assert
-        self.assertDictEqual(correctDict, resultDictionary)
-    
-    # --------------------- Sad path ---------------------
-    
-    def test200_010ShouldReturnMandatoryInformationMissing(self):
-        # Arrange
-        correctDict = {'error': 'mandatory information missing'}
-            
-        self.setParm('op','correct')
-              
-        # Act
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-              
-        # Assert
-        self.assertDictEqual(correctDict, resultDictionary)
-        
+#     def test100_010ShouldReturnChangedValuesWithOperationCorrect(self):   
+#         # Arrange
+#         correctDict = {'assumedLat': '53d38.4', 'correctedDistance': 104, 'altitude': '13d42.3', 
+#                        'assumedLong': '350d35.3', 'long': '95d41.6', 'lat': '16d32.3', 
+#                        'correctedAzimuth': '262d55.6', 'op': 'correct'}
+#             
+#         self.setParm('op','correct')
+#         self.setParm('lat','16d32.3')  
+#         self.setParm('long','95d41.6')
+#         self.setParm('altitude','13d42.3')
+#         self.setParm('assumedLat','53d38.4')
+#         self.setParm('assumedLong','350d35.3')  
+#               
+#         # Act
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#               
+#         # Assert
+#         self.assertDictEqual(correctDict, resultDictionary)
+#     
+#     # --------------------- Sad path ---------------------
+#     
+#     def test200_010ShouldReturnMandatoryInformationMissing(self):
+#         # Arrange
+#         correctDict = {'error': 'mandatory information missing'}
+#             
+#         self.setParm('op','correct')
+#               
+#         # Act
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#               
+#         # Assert
+#         self.assertDictEqual(correctDict, resultDictionary)
+#         
     def test200_011ShouldReturnMandatoryInformationMissing_Lat(self):
         # Arrange
         correctDict = {'error': 'mandatory information missing'}
