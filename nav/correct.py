@@ -29,6 +29,15 @@ def correct(values = None):
         return {'error': 'mandatory information missing'}
     
     # validate lat
+    lat = values['lat']
+    x, y = lat.split("d")
+    
+    if int(x) < -89 or int(x) > 89:
+        return {'error': 'lat is invalid'}
+    
+    y = y.lstrip("0")
+    if float(y) < 0.0 or not float(y) < 60:
+        return {'error': 'lat is invalid'}
     
     # ----- Initialization -----
     result = values

@@ -201,10 +201,11 @@ class correctTest(unittest.TestCase):
         correctDict = {'error': 'lat is invalid'}
              
         self.setParm('op','correct')
-        self.setParm('lat','200d32.3')
+        self.setParm('lat','200d32.3')  
         self.setParm('long','95d41.6')
         self.setParm('altitude','13d42.3')
-        self.setParm('assumedLat','53d38.4') 
+        self.setParm('assumedLat','53d38.4')
+        self.setParm('assumedLong','350d35.3')  
                
         # Act
         result = self.microservice()
