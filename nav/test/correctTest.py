@@ -95,5 +95,20 @@ class correctTest(unittest.TestCase):
               
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)
+    
+    # --------------------- Sad path ---------------------
+    
+    def test200_010ShouldReturnMandatoryInformationMissing(self):
+        # Arrange
+        correctDict = {'error: mandatory information missing'}
+            
+        self.setParm('op','correct')
+              
+        # Act
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+              
+        # Assert
+        self.assertDictEqual(correctDict, resultDictionary)
         
     
