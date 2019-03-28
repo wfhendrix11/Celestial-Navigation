@@ -1,5 +1,6 @@
 import nav.adjust as adjust
 import nav.predict as predict
+import nav.correct as correct
 
 def dispatch(values=None):
 
@@ -20,7 +21,8 @@ def dispatch(values=None):
         result = predict.predict(values)
         return result
     elif(values['op'] == 'correct'):
-        return values    #This calculation is stubbed out
+        result = correct.correct(values)
+        return result
     elif(values['op'] == 'locate'):
         return values    #This calculation is stubbed out
     else:
