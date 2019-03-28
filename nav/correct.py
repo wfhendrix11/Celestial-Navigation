@@ -68,7 +68,16 @@ def correct(values = None):
         return {'error': 'assumedLong is invalid'}
     
     # validate altitude
-    
+    altitude = values['altitude']
+    x, y = altitude.split("d")
+    if int(x) < 0 or int(x) > 89:
+        return {'error': 'altitude is invalid'}
+    y = y.lstrip("0")
+    if float(y) < 0.0 or not float(y) < 60:
+        return {'error': 'altitude is invalid'}
+    if int(x) == 0 and float(y) < 0.1:
+        return {'error': 'altitude is invalid'}
+        
     # ----- Initialization -----
     result = values
     
