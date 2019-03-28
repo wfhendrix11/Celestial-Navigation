@@ -19,6 +19,8 @@ def correct(values = None):
     
     if (not('lat' in values)):
         return {'error': 'mandatory information missing'}
+    if (not('long' in values)):
+        return {'error': 'mandatory information missing'}
     
     # ----- Initialization -----
     result = values
