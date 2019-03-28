@@ -23,6 +23,8 @@ def correct(values = None):
         return {'error': 'mandatory information missing'}
     if (not('altitude' in values)):
         return {'error': 'mandatory information missing'}
+    if (not('assumedLat' in values)):
+        return {'error': 'mandatory information missing'}
     
     # ----- Initialization -----
     result = values
