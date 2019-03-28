@@ -17,6 +17,9 @@ def correct(values = None):
     if values is None or not isinstance(values, dict):
         return {'error': 'values is not provided'}
     
+    if (not('lat' in values)):
+        return {'error': 'mandatory information missing'}
+    
     # ----- Initialization -----
     result = values
     
