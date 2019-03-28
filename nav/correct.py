@@ -34,10 +34,19 @@ def correct(values = None):
     
     if int(x) < -89 or int(x) > 89:
         return {'error': 'lat is invalid'}
-    
     y = y.lstrip("0")
     if float(y) < 0.0 or not float(y) < 60:
         return {'error': 'lat is invalid'}
+    
+    # validate assumedLat
+    assumedLat = values['assumedLat'] 
+    x, y = assumedLat.split("d")
+    
+    if int(x) < -89 or int(x) > 89:
+        return {'error': 'assumedLat is invalid'}
+    y = y.lstrip("0")
+    if float(y) < 0.0 or not float(y) < 60:
+        return {'error': 'assumedLat is invalid'}
     
     # ----- Initialization -----
     result = values
