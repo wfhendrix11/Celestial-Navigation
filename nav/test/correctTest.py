@@ -232,16 +232,34 @@ class correctTest(unittest.TestCase):
 #         # Assert
 #         self.assertDictEqual(correctDict, resultDictionary)
 
-    def test200_040ShouldReturnInvalidLong(self):
+#     def test200_040ShouldReturnInvalidLong(self):
+#         # Arrange
+#         correctDict = {'error': 'long is invalid'}
+#               
+#         self.setParm('op','correct')
+#         self.setParm('lat','16d32.3')  
+#         self.setParm('long','400d41.6')
+#         self.setParm('altitude','13d42.3')
+#         self.setParm('assumedLat','53d38.4')
+#         self.setParm('assumedLong','350d35.3')  
+#                 
+#         # Act
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#                 
+#         # Assert
+#         self.assertDictEqual(correctDict, resultDictionary)
+
+    def test200_050ShouldReturnInvalidAssumedLong(self):
         # Arrange
         correctDict = {'error': 'long is invalid'}
               
         self.setParm('op','correct')
         self.setParm('lat','16d32.3')  
-        self.setParm('long','400d41.6')
+        self.setParm('long','95d41.6')
         self.setParm('altitude','13d42.3')
         self.setParm('assumedLat','53d38.4')
-        self.setParm('assumedLong','350d35.3')  
+        self.setParm('assumedLong','450d35.3')  
                 
         # Act
         result = self.microservice()
