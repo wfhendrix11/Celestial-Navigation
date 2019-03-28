@@ -48,6 +48,16 @@ def correct(values = None):
     if float(y) < 0.0 or not float(y) < 60:
         return {'error': 'assumedLat is invalid'}
     
+    # validate longitude
+    longitude = values['long']
+    x, y = longitude.split("d")
+    
+    if int(x) < 0 or int(x) > 359:
+        return {'error': 'long is invalid'}
+    y = y.lstrip("0")
+    if float(y) < 0.0 or not float(y) < 60:
+        return {'error': 'long is invalid'}
+    
     # ----- Initialization -----
     result = values
     
