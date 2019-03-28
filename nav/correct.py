@@ -25,6 +25,8 @@ def correct(values = None):
         return {'error': 'mandatory information missing'}
     if (not('assumedLat' in values)):
         return {'error': 'mandatory information missing'}
+    if (not('assumedLong' in values)):
+        return {'error': 'mandatory information missing'}
     
     # ----- Initialization -----
     result = values
