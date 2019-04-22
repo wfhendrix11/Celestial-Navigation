@@ -11,4 +11,11 @@ import math
         :return the location. 
 '''      
 def locate(values = None):
+    
+    # ----- Validation -----
+    
+    # ----- Initialization ------
+    
+    # ----- Calculation -----
+    
     return 0
