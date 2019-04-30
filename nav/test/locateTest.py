@@ -160,4 +160,22 @@ class locateTest(unittest.TestCase):
         resultDictionary = self.string2dict(result)
                   
         # Assert
+        self.assertDictEqual(correctDict, resultDictionary)
+        
+    def test100_040ShouldReturnAssumedLatTooBig(self):   
+        # Arrange
+        correctDict = {'op':'locate', 'assumedLat':'-53d38.4', 'assumedLong':'350d35.3', 
+                       'presentLat':'-50d41.6','presentLong':'350d37.0','precision':'0','accuracy':'NA', 
+                       'corrections': '[[100,1d0.0]]'}        
+                
+        self.setParm('op','locate')
+        self.setParm('assumedLat','91d0.0')
+        self.setParm('assumedLong','350d35.3')
+        self.setParm('corrections','[[100,1d0.0]]')  
+                  
+        # Act
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+                  
+        # Assert
         self.assertDictEqual(correctDict, resultDictionary)    
