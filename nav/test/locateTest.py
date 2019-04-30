@@ -224,4 +224,20 @@ class locateTest(unittest.TestCase):
         resultDictionary = self.string2dict(result)
                   
         # Assert
+        self.assertDictEqual(correctDict, resultDictionary)
+    
+    def test100_060ShouldReturnCorrectionsNotString(self):   
+        # Arrange
+        correctDict = {'error':'corrections is invalid'}        
+                
+        self.setParm('op','locate')
+        self.setParm('assumedLat','-53d38.4')
+        self.setParm('assumedLong','350d35.3')
+        self.setParm('corrections',123)  
+                  
+        # Act
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+                  
+        # Assert
         self.assertDictEqual(correctDict, resultDictionary)      

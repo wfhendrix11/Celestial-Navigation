@@ -45,6 +45,9 @@ def locate(values = None):
     if float(y) < 0.0 or not float(y) < 60:
         return {'error': 'assumedLong is invalid'}
     
+    # validate corrections
+    corrections = values['corrections']
+    
     # ----- Initialization ------
     result = values
     
