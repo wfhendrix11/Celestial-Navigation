@@ -144,4 +144,20 @@ class locateTest(unittest.TestCase):
         resultDictionary = self.string2dict(result)
                   
         # Assert
-        self.assertDictEqual(correctDict, resultDictionary)   
+        self.assertDictEqual(correctDict, resultDictionary)
+        
+    def test200_030ShouldReturnMissingCorrections(self):
+        # Arrange
+        correctDict = {'error': 'mandatory information missing'}        
+                
+        self.setParm('op','locate')
+        self.setParm('assumedLat','-53d38.4')
+        self.setParm('assumedLong','350d35.3')
+        #self.setParm('corrections','[[100,1d0.0]]')  
+                  
+        # Act
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+                  
+        # Assert
+        self.assertDictEqual(correctDict, resultDictionary)    
