@@ -79,7 +79,8 @@ class locateTest(unittest.TestCase):
     def test100_010ShouldReturnChangedValuesWithOperationLocate(self):   
         # Arrange
         correctDict = {'op':'locate', 'assumedLat':'32d36.5', 'assumedLong':'274d31.1', 
-                       'presentLat':'33d8.1','presentLong':'274d46.7','precision':'45','accuracy':'NA'}        
+                       'presentLat':'33d8.1','presentLong':'274d46.7','precision':'45','accuracy':'NA', 
+                       'corrections': '[[50,45d0.0], [75,60d42.0], [100,300d11.2], [42,42d12.3], [70,60d45.0], [10,280d0.0]]'}        
                
         self.setParm('op','locate')
         self.setParm('assumedLat','32d36.5')
@@ -90,6 +91,24 @@ class locateTest(unittest.TestCase):
         result = self.microservice()
         resultDictionary = self.string2dict(result)
                  
+        # Assert
+        self.assertDictEqual(correctDict, resultDictionary)
+        
+    def test100_020ShouldReturnChangedValuesWithOperationLocate(self):   
+        # Arrange
+        correctDict = {'op':'locate', 'assumedLat':'-53d38.4', 'assumedLong':'350d35.3', 
+                       'presentLat':'-50d41.6','presentLong':'350d37.0','precision':'0','accuracy':'NA', 
+                       'corrections': '[[100,1d0.0]]'}        
+                
+        self.setParm('op','locate')
+        self.setParm('assumedLat','-53d38.4')
+        self.setParm('assumedLong','350d35.3')
+        self.setParm('corrections','[[100,1d0.0]]')  
+                  
+        # Act
+        result = self.microservice()
+        resultDictionary = self.string2dict(result)
+                  
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)
     

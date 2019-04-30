@@ -100,6 +100,5 @@ def locate(values = None):
     left, right = str(precision).split(".")
     result['precision'] = left
     result['accuracy'] = 'NA'
-    del result['corrections']
     
     return result
