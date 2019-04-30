@@ -26,6 +26,7 @@ def dispatch(values=None):
         return result
     elif(values['op'] == 'locate'):
         result = locate.locate(values)
+        return result
     else:
         values['error'] = 'op is not a legal operation'
         return values
