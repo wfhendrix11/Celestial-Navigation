@@ -21,7 +21,10 @@ def locate(values = None):
         return {'error': 'mandatory information missing'} 
     
     if (not('assumedLong' in values)):
-        return {'error': 'mandatory information missing'}   
+        return {'error': 'mandatory information missing'}
+    
+    if (not('corrections' in values)):
+        return {'error': 'mandatory information missing'} 
     
     # ----- Initialization ------
     result = values
