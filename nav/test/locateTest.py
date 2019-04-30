@@ -196,7 +196,7 @@ class locateTest(unittest.TestCase):
         
     def test100_050ShouldReturnAssumedLongTooBig(self):   
         # Arrange
-        correctDict = {'error': 'assumedLat is invalid'}        
+        correctDict = {'error': 'assumedLong is invalid'}        
                 
         self.setParm('op','locate')
         self.setParm('assumedLat','32d36.5')
