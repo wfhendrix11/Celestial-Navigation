@@ -47,16 +47,16 @@ def locate(values = None):
     
     # validate corrections
     corrections = values['corrections']
-    
+    corrections = corrections.split(', ')
     for correction in corrections:          
         correctedDistance, correctedAzmuth = correction.split(",")
-        
+         
         # remove brackets
         correctedAzmuth = correctedAzmuth.replace(']', "")
         correctedAzmuth = correctedAzmuth.replace(']', "")
         correctedDistance = correctedDistance.replace('[', "")
         correctedDistance = correctedDistance.replace('[', "")
-        
+         
         # validate corrected distance
     
     
