@@ -58,7 +58,9 @@ def locate(values = None):
         correctedDistance = correctedDistance.replace('[', "")
          
         # validate corrected distance
-    
+        correctedDistance = float(correctedDistance)
+        if correctedDistance < 0:
+            return {'error': 'correctedDistance is invalid'}
     
     # ----- Initialization ------
     result = values
