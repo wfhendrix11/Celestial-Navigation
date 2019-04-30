@@ -78,13 +78,12 @@ class locateTest(unittest.TestCase):
     
     def test100_010ShouldReturnChangedValuesWithOperationLocate(self):   
         # Arrange
-        correctDict = {'op':'locate', 'assumedLat':'-53d38.4', 'assumedLong':' 350d35.3', 
-                       'presentLat':'-51d58.4','presentLong':'350d37.0','precision':'0 ','accuracy':'NA'}        
+        correctDict = {'op':'locate', 'assumedLat':'32d36.5', 'assumedLong':'274d31.1', 
+                       'presentLat':'33d8.1','presentLong':'274d46.7','precision':'45','accuracy':'NA'}        
                
         self.setParm('op','locate')
         self.setParm('assumedLat','32d36.5')
         self.setParm('assumedLong','274d31.1')
-        #self.setParm('corrections', '[[50,45d0.0]]')
         self.setParm('corrections','[[50,45d0.0], [75,60d42.0], [100,300d11.2], [42,42d12.3], [70,60d45.0], [10,280d0.0]]')  
                  
         # Act

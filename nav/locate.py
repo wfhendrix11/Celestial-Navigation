@@ -42,25 +42,36 @@ def locate(values = None):
         correctedDistance = correctedDistance.replace('[', "")
         
         correctedAzmuth = Angle.stringToAngle(correctedAzmuth)
+        correctedAzmuth.decimal = correctedAzmuth.hourDegree + (correctedAzmuth.minuteDegree / 60)
         correctedDistance = float(correctedDistance)
         
-        nsCorrection += correctedDistance * math.cos(math.radians(correctedAzmuth.hourDegree))
-        ewCorrection += correctedDistance * math.sin(math.radians(correctedAzmuth.hourDegree))
+        nsCorrection += correctedDistance * math.cos(math.radians(correctedAzmuth.decimal))
+        ewCorrection += correctedDistance * math.sin(math.radians(correctedAzmuth.decimal))
     
     nsCorrection = nsCorrection / n
     ewCorrection = ewCorrection / n
     
-    # for sake of testing, hard code values
-    nsCorrection = 31.57
-    ewCorrection = 15.63
+    assumedLat = Angle.stringToAngle(assumedLat)
+    assumedLat.decimal = assumedLat.hourDegree + (assumedLat.minuteDegree / 60)
+    assumedLat.decimal = assumedLat.decimal + (nsCorrection / 60)
+    left, right = str(assumedLat.decimal).split(".")
+    right = "0." + right
+    right = float(right)
+    right = right * 60
+    right = round(right, 1)
     
-    nsCorrection_degrees = nsCorrection / 60
-    ewCorrection_degrees = ewCorrection / 60
+    result['presentLat'] = str(int(left)) + "d" + str(right)
     
-    assumedLat_angle = Angle.stringToAngle(assumedLat)
+    assumedLong = Angle.stringToAngle(assumedLong)
+    assumedLong.decimal = assumedLong.hourDegree + (assumedLong.minuteDegree / 60)
+    assumedLong.decimal = assumedLong.decimal + (ewCorrection / 60)
+    left, right = str(assumedLong.decimal).split(".")
+    right = "0." + right
+    right = float(right)
+    right = right * 60
+    right = round(right, 1)
     
-    assumedLat_angle.decimal = assumedLat_angle.decimal + nsCorrection_degrees
-    assumedLat_angle = Angle.decimalToAngle(assumedLat_angle.decimal)
+    result['presentLong'] = str(int(left)) + "d" + str(right)
     
     
     # Estimate the precision of the present position by measuring the uniformity of the input corrected distance/corrected azimuth pairs:
@@ -76,16 +87,18 @@ def locate(values = None):
         correctedDistance = correctedDistance.replace('[', "")
         
         correctedAzmuth = Angle.stringToAngle(correctedAzmuth)
+        correctedAzmuth.decimal = correctedAzmuth.hourDegree + (correctedAzmuth.minuteDegree / 60)
         correctedDistance = float(correctedDistance)
         
-        x = round(math.cos(math.radians(correctedAzmuth.hourDegree)), 2)
-        a = math.pow(((correctedDistance * x) - nsCorrection), 2)
+        a = math.pow(((correctedDistance * math.cos(math.radians(correctedAzmuth.decimal))) - nsCorrection), 2)
         
-        y = round(math.sin(math.radians(correctedAzmuth.hourDegree)), 2)
-        b = math.pow(((correctedDistance * y) - ewCorrection), 2)
+        b = math.pow(((correctedDistance * math.sin(math.radians(correctedAzmuth.decimal))) - ewCorrection), 2)
         
         precision += math.sqrt(a + b)
     
-    precision = (1 / n) * precision   
+    precision = (1.0 / n) * precision 
+    left, right = str(precision).split(".")
+    result['precision'] = left
+    result['accuracy'] = 'NA'
     
-    return 0
+    return result
