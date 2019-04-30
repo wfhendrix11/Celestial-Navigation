@@ -61,7 +61,7 @@ def locate(values = None):
         correctedDistance = float(correctedDistance)
         if correctedDistance < 0:
             return {'error': 'correctedDistance is invalid'}
-    
+        
     # ----- Initialization ------
     result = values
     

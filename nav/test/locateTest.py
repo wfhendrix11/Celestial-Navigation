@@ -241,19 +241,4 @@ class locateTest(unittest.TestCase):
                   
         # Assert
         self.assertDictEqual(correctDict, resultDictionary)
-        
-    def test100_070ShouldReturnCorrectedAzimuthTooBig(self):   
-        # Arrange
-        correctDict = {'error': 'correctedDistance is invalid'}        
                 
-        self.setParm('op','locate')
-        self.setParm('assumedLat','-53d38.4')
-        self.setParm('assumedLong','350d35.3')
-        self.setParm('corrections','[[100,361d0.0]]')  
-                  
-        # Act
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-                  
-        # Assert
-        self.assertDictEqual(correctDict, resultDictionary)         
