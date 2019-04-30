@@ -24,7 +24,17 @@ def locate(values = None):
         return {'error': 'mandatory information missing'}
     
     if (not('corrections' in values)):
-        return {'error': 'mandatory information missing'} 
+        return {'error': 'mandatory information missing'}
+    
+    # validate assumedLat
+    assumedLat = values['assumedLat'] 
+    x, y = assumedLat.split("d")
+    
+    if int(x) < -89 or int(x) > 89:
+        return {'error': 'assumedLat is invalid'}
+    y = y.lstrip("0")
+    if float(y) < 0.0 or not float(y) < 60:
+        return {'error': 'assumedLat is invalid'} 
     
     # ----- Initialization ------
     result = values
