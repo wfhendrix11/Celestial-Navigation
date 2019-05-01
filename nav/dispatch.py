@@ -1,6 +1,7 @@
 import nav.adjust as adjust
 import nav.predict as predict
 import nav.correct as correct
+import nav.locate as locate
 
 def dispatch(values=None):
 
@@ -24,7 +25,8 @@ def dispatch(values=None):
         result = correct.correct(values)
         return result
     elif(values['op'] == 'locate'):
-        return values    #This calculation is stubbed out
+        result = locate.locate(values)
+        return result
     else:
         values['error'] = 'op is not a legal operation'
         return values
